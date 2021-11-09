@@ -1,0 +1,91 @@
+@use "../abstracts/variables" as *;
+
+h1 {
+  color: var(--font-color);
+  font-family: "uniform-black";
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Shapiro-Bold";
+  text-align: center;
+}
+
+h3 {
+  font-family: "uniform-black";
+  font-size: 2.2rem;
+}
+
+.popup_heading {
+  margin-bottom: 0vw;
+}
+
+h4 {
+  font-family: "uniform-medium";
+  font-size: 0.6875rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: "sharpiro-regular";
+  color: var(--font-color);
+  font-size: 0.8125rem;
+  line-height: 150%;
+  text-align: center;
+}
+.popup h3,
+.popup p {
+  text-align: center;
+  color: var(--heading-color-animate);
+}
+
+.summary_container p,
+.topgames p,
+.improvements p {
+  text-align: left;
+  color: #3f3f50;
+}
+
+.info_text {
+  font-size: 0.6rem;
+  margin-top: -4vw;
+}
+
+.summary_info_text {
+  font-size: 0.6rem;
+  margin-bottom: -3.5vw;
+}
+
+@font-face {
+  font-family: "Shapiro-Bold";
+  src: url("../../assets/sharpiro-bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "sharpiro-regular";
+  src: url("../../assets/sharpiro-regular.woff2");
+}
+
+@font-face {
+  font-family: "uniform-black";
+  src: url("../../assets/uniform-pro-con-black.woff2");
+}
+
+@font-face {
+  font-family: "uniform-medium";
+  src: url("../../assets/uniform-pro-con-medium.woff2");
+}
+
+@media (min-width: 700px) {
+  .info_text {
+    font-size: 0.7rem;
+    margin-top: -1vw;
+  }
+
+  .summary_info_text {
+    font-size: 0.7rem;
+    margin-bottom: -1vw;
+  }
+}

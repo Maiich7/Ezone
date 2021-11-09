@@ -1,0 +1,48 @@
+@use "../abstracts/variables" as *;
+
+header {
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  align-items: center;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.11765);
+
+  .menu {
+    display: flex;
+    flex: 1;
+    margin-right: auto;
+    margin: 0;
+  }
+
+  .logo {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .icons {
+    display: flex;
+    flex: 1;
+    margin-left: auto;
+  }
+
+  .icons,
+  .icons-social-media,
+  .icons-other {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    p {
+      padding-inline: 1rem;
+      margin: 0;
+    }
+
+    .theme-switch {
+      cursor: pointer;
+    }
+  }
+}

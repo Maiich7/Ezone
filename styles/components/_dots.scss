@@ -1,0 +1,34 @@
+@use "../abstracts/variables" as *;
+
+.dots-navigation {
+  display: inline-flex;
+}
+
+.nav-dot {
+  display: inline-grid;
+  width: 1rem;
+  height: 1rem;
+  border: 1.5px solid var(--heading-color-animate);
+  border-radius: 1rem;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.nav-dot::after {
+  content: "";
+  width: 0.8rem;
+  height: 0.8em;
+  border-radius: inherit;
+  background-color: var(--heading-color-animate);
+  place-self: center;
+  opacity: 0;
+  transform: scale(0.5);
+  transition-duration: 0.5s;
+}
+
+.nav-dot.active::after {
+  opacity: 1;
+  transform: scale(1.2);
+  transition-timing-function: cubic-bezier(0.07, 0.59, 0.4, 1.71);
+  transition-duration: 0.5s;
+}

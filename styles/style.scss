@@ -1,0 +1,13 @@
+@use "abstracts";
+@use "base";
+@use "components";
+@use "layout";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+}

@@ -1,0 +1,58 @@
+@use "../abstracts/variables" as *;
+
+.popup {
+  width: 90vw;
+  height: 90vh;
+  max-width: 50rem;
+  background-color: #e3e3e5;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px 25px;
+  box-shadow: 0 0 13px 4px #6259fa;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+input {
+  border: none;
+  border-bottom: solid 1px black;
+  outline: 0;
+  background-color: #e3e3e5;
+}
+
+form {
+  display: grid;
+  justify-content: center;
+  gap: 1vw;
+  margin-top: 4vw;
+}
+
+select {
+  border-radius: 11rem;
+  background-color: #e3e3e5;
+  border: 1px #707070 solid;
+  height: 2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.select_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.name {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1vw;
+}
+
+@media (min-width: 700px) {
+  .summary_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
