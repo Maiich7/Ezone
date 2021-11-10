@@ -1,63 +1,5 @@
 @use "../abstracts/variables" as *;
 
-h1 {
-  color: var(--font-color);
-  font-family: "uniform-black";
-  font-size: 2.5rem;
-  text-align: center;
-}
-
-h2 {
-  font-family: "Shapiro-Bold";
-  text-align: center;
-}
-
-h3 {
-  font-family: "uniform-black";
-  font-size: 2.2rem;
-}
-
-.popup_heading {
-  margin-bottom: 0vw;
-}
-
-h4 {
-  font-family: "uniform-medium";
-  font-size: 0.6875rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-p {
-  font-family: "sharpiro-regular";
-  color: var(--font-color);
-  font-size: 0.8125rem;
-  line-height: 150%;
-  text-align: center;
-}
-.popup h3,
-.popup p {
-  text-align: center;
-  color: var(--heading-color-animate);
-}
-
-.summary_container p,
-.topgames p,
-.improvements p {
-  text-align: left;
-  color: #3f3f50;
-}
-
-.info_text {
-  font-size: 0.6rem;
-  margin-top: -4vw;
-}
-
-.summary_info_text {
-  font-size: 0.6rem;
-  margin-bottom: -3.5vw;
-}
-
 @font-face {
   font-family: "Shapiro-Bold";
   src: url("../../assets/sharpiro-bold.woff2") format("woff2");
@@ -78,14 +20,136 @@ p {
   src: url("../../assets/uniform-pro-con-medium.woff2");
 }
 
+h1 {
+  color: var(--heading-color);
+  font-family: "uniform-black";
+  font-size: 3rem;
+  line-height: 2.7rem;
+  text-align: center;
+  margin: 0;
+}
+
+.stroke {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px var(--heading-color);
+}
+
+h2 {
+  font-family: "Shapiro-Bold";
+  text-align: center;
+}
+
+h3 {
+  font-family: "uniform-black";
+  font-size: 2.2rem;
+}
+
+.popup_heading {
+  margin-bottom: 0;
+}
+
+h4 {
+  font-family: "uniform-medium";
+  font-size: 0.6875rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-family: "uniform-black";
+  color: var(--popup-font-color);
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+p {
+  font-family: "sharpiro-regular";
+  color: var(--font-color);
+  font-size: 0.8125rem;
+  line-height: 150%;
+  text-align: center;
+}
+
+li {
+  font-family: "sharpiro-regular";
+  font-size: 0.8125rem;
+  line-height: 150%;
+  color: var(--tint);
+}
+
+.popup h3,
+.popup p {
+  text-align: center;
+  color: var(--popup-font-color);
+}
+
+.summary_container p,
+.topgames p,
+.range-wrap P,
+.improvements p {
+  text-align: left;
+  color: var(--tint);
+}
+
+.heading_text {
+  color: var(--heading-color);
+}
+
+.topgames p:first-child,
+.improvements p:first-child {
+  margin-bottom: 0;
+}
+
+.range-wrap p {
+  margin: 0;
+}
+
+.info_text {
+  font-size: 0.6rem;
+  margin-top: 0.1rem;
+}
+
+.summary_info_text {
+  font-size: 0.6rem;
+  margin-bottom: 0;
+}
+
+p[data-input] {
+  font-weight: bold;
+  margin-top: 0.1rem;
+}
+
+.appetizer h5 {
+  margin-bottom: 0;
+  margin: 0;
+}
+
+.appetizer_p {
+  margin-top: 0;
+  color: var(--popup-font-color);
+}
+
 @media (min-width: 700px) {
   .info_text {
     font-size: 0.7rem;
-    margin-top: -1vw;
   }
 
   .summary_info_text {
     font-size: 0.7rem;
-    margin-bottom: -1vw;
+  }
+
+  h1 {
+    font-size: 5rem;
+    line-height: 4.5rem;
+  }
+
+  .heading_text {
+    margin-left: 15rem;
+    margin-right: 15rem;
+    max-width: 40rem;
+  }
+
+  .appetizer h5 {
+    padding-top: 1.3rem;
   }
 }

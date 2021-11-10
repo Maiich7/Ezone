@@ -1,0 +1,112 @@
+@use "../abstracts/variables" as *;
+
+.form-group {
+  display: grid;
+  grid-template-rows: 1fr;
+
+  > * {
+    grid-row: 1;
+    grid-column: 1;
+  }
+}
+
+.input-placeholder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.2rem;
+  pointer-events: none;
+}
+
+.validation-icons {
+  display: grid;
+  grid-template-rows: 1;
+
+  > * {
+    grid-row: 1;
+    grid-column: 1;
+    place-self: center;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+
+  .fa-exclamation-circle {
+    color: var(--invalid-color);
+  }
+
+  .fa-check-circle {
+    color: var(--valid-color);
+  }
+}
+
+input:invalid:not(:placeholder-shown) ~ .input-placeholder .fa-exclamation-circle {
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+input:valid:not(:placeholder-shown) ~ .input-placeholder .fa-check-circle {
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+input:not(:placeholder-shown) ~ .input-placeholder label {
+  font-size: 0.6rem;
+  transform: translateY(-70%);
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.17, 0.67, 0.61, 1.26);
+}
+
+input:invalid:not(:placeholder-shown, [type="date"]) {
+  border-bottom-color: var(--invalid-color);
+  border-width: 2px;
+}
+
+input:valid:not(:placeholder-shown) {
+  border-bottom-color: var(--valid-color);
+  border-width: 2px;
+}
+
+select:first-child {
+  border-color: var(--valid-color);
+  border-width: 2px;
+}
+
+.submitted {
+  input:invalid {
+    border-bottom-color: var(--invalid-color);
+    border-width: 2px;
+  }
+
+  input:invalid ~ .input-placeholder .fa-exclamation-circle {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+
+  select:invalid {
+    border-color: var(--invalid-color);
+  }
+}
+
+// select {
+//   transition-duration: 0.3s;
+//   transition-timing-function: ease-in;
+// }
+
+// select:invalid {
+//   color: var(--invalid-color);
+//   border-color: var(--invalid-color);
+// }
+
+// select#games1:invalid ~ select#games2 {
+//   filter: opacity(50%);
+//   background-color: grey;
+//   pointer-events: none;
+// }
+
+// select#games2:invalid ~ select#games3 {
+//   filter: opacity(50%);
+//   background-color: grey;
+//   pointer-events: none;
+// }

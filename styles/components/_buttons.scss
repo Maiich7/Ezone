@@ -1,0 +1,50 @@
+.button {
+  cursor: pointer;
+}
+
+.close-button {
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  color: var(--pill-fill2);
+  pointer-events: all;
+  transition-duration: 0.3s;
+}
+
+.close-button:hover {
+  transform: scale(1.5);
+  transition-duration: 0.3s;
+}
+
+.hide-button-container {
+  display: flex;
+  justify-content: flex-end;
+  height: 7%;
+}
+
+.slide[data-slide="4"] {
+  text-align: center;
+}
+
+.return-button {
+  font-family: "uniform-medium";
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: var(--pill-fill2);
+  color: var(--font-color);
+  padding: 1rem 1.5rem;
+  filter: opacity(1);
+  transition-duration: 0.3s;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.popup[data-current="4"] .return-button {
+  filter: opacity(1);
+  transition-duration: 0.3s;
+  pointer-events: all;
+}

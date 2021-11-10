@@ -5,7 +5,6 @@ document.querySelectorAll("input, select").forEach((input) => {
 });
 
 function updateSummary(e) {
-  console.log(e.target);
   //const target the id for the input field, when filled.
   const valueId = e.target.id;
   const field = document.querySelector(`p[data-input="${valueId}"]`);
@@ -13,6 +12,8 @@ function updateSummary(e) {
   // const target the stuff that id points at :)
   const value = e.target.value;
 
-  // update the field in summary
-  field.textContent = value;
+  if (e.target.id !== "password") {
+    // update the field in summary
+    field.textContent = value;
+  }
 }

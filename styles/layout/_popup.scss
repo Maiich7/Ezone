@@ -2,57 +2,119 @@
 
 .popup {
   width: 90vw;
-  height: 90vh;
-  max-width: 50rem;
-  background-color: #e3e3e5;
+  height: 80vh;
+  max-width: 40rem;
+  background-color: var(--popup-color);
   position: absolute;
+  left: 85%;
+  top: 90%;
+  border-radius: 25px 25px;
+  box-shadow: 0 0 13px 4px var(--shadow-color);
+  overflow: hidden;
+  transform-origin: top left;
+  transform: scale(0.1) translate(-50%, -50%);
+  opacity: 0;
+  transition-timing-function: ease-in;
+  pointer-events: none;
+}
+
+.displayed {
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 25px 25px;
-  box-shadow: 0 0 13px 4px #6259fa;
-  padding: 2rem;
-  overflow: hidden;
-}
-
-input {
-  border: none;
-  border-bottom: solid 1px black;
-  outline: 0;
-  background-color: #e3e3e5;
-}
-
-form {
-  display: grid;
-  justify-content: center;
-  gap: 1vw;
-  margin-top: 4vw;
-}
-
-select {
-  border-radius: 11rem;
-  background-color: #e3e3e5;
-  border: 1px #707070 solid;
-  height: 2rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.select_container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.5rem;
+  transform: scale(1) translate(-50%, -50%);
+  opacity: 1;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+  pointer-events: all;
 }
 
 .name {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1vw;
+  gap: 1rem;
+
+  input {
+    text-transform: capitalize;
+  }
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+input {
+  width: 100%;
+  font-family: "sharpiro-regular";
+  font-size: 1rem;
+  border: none;
+  border-bottom: solid 1px var(--piece-header-bg);
+  outline: 0;
+  background-color: var(--popup-color);
+  color: var(--bg-color);
+  transition-duration: 0.3s;
+}
+
+label {
+  width: 100%;
+  font-size: 1rem;
+  font-family: "sharpiro-regular";
+  color: var(--tint);
+  border: none;
+  outline: 0;
+}
+
+.select_container {
+  display: grid;
+  gap: 0.5rem;
+}
+
+select {
+  border-radius: 11rem;
+  background-color: var(--popup-color);
+  border: 1px solid var(--tint);
+  height: 2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+  color: var(--bg-color);
+}
+
+html[data-theme="light"] ::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
 
 @media (min-width: 700px) {
-  .summary_container {
+  form {
+    display: grid;
+    gap: 4rem;
+  }
+
+  .name {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .summary_container {
+    display: grid;
+    justify-content: center;
+  }
+
+  .general_summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6rem;
+  }
+
+  .gaming_summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6rem;
+  }
+
+  .select_container {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

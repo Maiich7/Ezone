@@ -1,0 +1,66 @@
+@use "../abstracts/variables" as *;
+
+.appetizer {
+  width: 16rem;
+  background-color: var(--popup-color);
+  border-radius: 10rem;
+  text-align: center;
+  position: fixed;
+  bottom: 5vh;
+  right: 3vw;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  padding: 0.5rem;
+}
+
+.appetizer-text {
+  place-self: center;
+
+  > * {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-transform: center;
+  }
+}
+
+.appetizer-arrows {
+  width: 2rem;
+}
+
+.appetizer-slide {
+  animation: appetizer-slide_kf 2s ease-in-out 1;
+  animation-fill-mode: both;
+}
+
+@keyframes appetizer-slide_kf {
+  0% {
+    transform: translateX(70vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
+
+@media (min-width: 700px) {
+  .appetizer {
+    width: 19rem;
+    grid-template-columns: 4.4fr 1fr;
+    position: fixed;
+    bottom: 5vh;
+    right: 2vw;
+  }
+
+  .appetizer-slide {
+    animation: appetizer-slide_kf 2s ease-in-out 1;
+    animation-fill-mode: both;
+  }
+
+  @keyframes appetizer-slide_kf {
+    0% {
+      transform: translateX(50vw);
+    }
+    100% {
+      transform: translateX(0vw);
+    }
+  }
+}

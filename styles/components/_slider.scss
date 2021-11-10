@@ -1,32 +1,103 @@
+@use "../abstracts/variables" as *;
+
 .slides-container {
   display: flex;
   overflow-x: hidden;
-  width: 300%;
-  height: 95%;
+  width: 400%;
+  height: 84%;
   transition-timing-function: ease-in;
   transition-duration: 0.5s;
-}
 
-.slide {
-  width: calc(100% * 1 / 3);
-  margin: 0 2rem;
+  .slide {
+    width: calc(100% * 1 / 4);
+    padding: 0 2rem;
+    overflow-y: auto;
+  }
 }
 
 .popup-navigation {
+  height: 9%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0 1.5rem 1.5rem;
+
+  > * {
+    display: inline-flex;
+    flex: 1;
+    grid-gap: 0.5rem;
+
+    > * {
+      align-self: center;
+    }
+  }
+
+  .dots-navigation {
+    justify-content: center;
+  }
+
+  .end-navigation {
+    display: grid;
+    justify-content: end;
+    grid-template-rows: 1fr;
+    grid-gap: 0;
+
+    > * {
+      grid-row: 1;
+      grid-column: 1;
+    }
+  }
+
+  .submit-button {
+    font-family: "uniform-medium";
+    letter-spacing: 0.2rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: var(--pill-fill2);
+    color: var(--font-color);
+    padding: 0.5rem 1rem;
+    filter: opacity(0);
+    transition-duration: 0.3s;
+    cursor: pointer;
+    pointer-events: none;
+  }
+
+  @media (min-width: 500px) {
+    .submit-button {
+      padding: 1rem 2rem;
+    }
+  }
 }
 
-.popup-navigation > * {
-  display: inline-block;
+.popup[data-current="1"] .arrow-previous {
+  filter: opacity(0);
+  transition-duration: 0.3s;
+  pointer-events: none;
 }
 
-.arrow-previous {
-  transform: scale(-1);
-  cursor: pointer;
+.popup[data-current="3"] .arrow-next {
+  filter: opacity(0);
+  transition-duration: 0.3s;
+  pointer-events: none;
 }
 
-.arrow-next {
-  cursor: pointer;
+.popup[data-current="3"] .submit-button {
+  filter: opacity(1);
+  transition-duration: 0.3s;
+  pointer-events: all;
+}
+
+.popup[data-current="4"] .submit-button,
+.popup[data-current="4"] .dots-navigation,
+.popup[data-current="4"] .arrow-previous,
+.popup[data-current="4"] .arrow-next {
+  filter: opacity(0);
+  transition-duration: 0.3s;
+  pointer-events: none;
+}
+
+@media (min-width: 700px) {
+  .slides-container {
+    align-items: center;
+  }
 }

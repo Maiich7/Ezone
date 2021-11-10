@@ -1,28 +1,27 @@
 "use strict";
 
-import "./styles/style.scss";
+import "./../styles/style.scss";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOMContentLoaded");
 
+  // document.querySelector(".appetizer").classList.add("")
   document.querySelector(".theme-switch").addEventListener("click", switchTheme);
   document.querySelector(".arrow-previous").addEventListener("click", slidePrevious);
   document.querySelector(".arrow-next").addEventListener("click", slideNext);
   document.querySelectorAll(".nav-dot").forEach((el) => {
     el.addEventListener("click", switchSlide);
   });
+
+  document.querySelector('input[type="password"').addEventListener("keydown", cancelInputSwitch);
 });
 
 function switchTheme() {
   let html = document.querySelector("html");
 
   if (html.dataset.theme === "dark") {
-    console.log("dark");
-
     html.dataset.theme = "light";
   } else if (html.dataset.theme === "light") {
-    console.log("light");
-
     html.dataset.theme = "dark";
   }
 }
@@ -33,10 +32,8 @@ function slidePrevious() {
   const currentSlideInt = getCurrentSlideInt();
   const previousSlideInt = currentSlideInt - 1;
 
-  //Remove previous and set new active
-  const previousSlide = document.querySelector(`.slide[data-slide="${previousSlideInt}"]`);
-  document.querySelector(".active").classList.remove("active");
-  previousSlide.classList.add("active");
+  //Remove previous and set new active slide and nav-dot
+  updateActiveElements(previousSlideInt);
 
   //Increment slide-container accordingly
   const increment = calculateTranslateX(previousSlideInt);
@@ -49,10 +46,8 @@ function slideNext() {
   const currentSlideInt = getCurrentSlideInt();
   const nextSlideInt = currentSlideInt + 1;
 
-  //Remove previous and set new active
-  const nextSlide = document.querySelector(`.slide[data-slide="${nextSlideInt}"]`);
-  document.querySelector(".slide.active").classList.remove("active");
-  nextSlide.classList.add("active");
+  //Remove previous and set new active slide and nav-dot
+  updateActiveElements(nextSlideInt);
 
   //Increment slide-container accordingly
   const increment = calculateTranslateX(nextSlideInt);
@@ -70,9 +65,8 @@ function switchSlide(e) {
   const container = document.querySelector(".slides-container");
   const newSlideInt = e.target.dataset.dot;
 
-  //Animate nav dots
-  document.querySelector(".nav-dot.active").classList.remove("active");
-  e.target.classList.add("active");
+  //Remove previous and set new active slide and nav-dot
+  updateActiveElements(newSlideInt);
 
   //Increment slide-container accordingly
   const increment = calculateTranslateX(newSlideInt);
@@ -81,8 +75,40 @@ function switchSlide(e) {
 
 function calculateTranslateX(newSlideInt) {
   //Declare constants
-  const third = (1 / 3) * 100;
-  const increment = newSlideInt * third - third;
+  const quarter = (1 / 4) * 100;
+  const increment = newSlideInt * quarter - quarter;
 
   return increment;
+}
+
+function updateActiveElements(int) {
+  updateActiveSlide(int);
+  updateActiveDot(int);
+  updateDataCurrentSlide(int);
+}
+
+function updateActiveSlide(int) {
+  //Remove previous and set new active
+  const newSlide = document.querySelector(`.slide[data-slide="${int}"]`);
+  document.querySelector(".slide.active").classList.remove("active");
+  newSlide.classList.add("active");
+}
+
+function updateActiveDot(int) {
+  //Remove previous and set new active
+  const newDot = document.querySelector(`.nav-dot[data-dot="${int}"]`);
+  document.querySelector(".nav-dot.active").classList.remove("active");
+  newDot.classList.add("active");
+}
+
+function updateDataCurrentSlide(int) {
+  //Change data-current of popup to new slide value
+  const popup = document.querySelector(".popup");
+  popup.dataset.current = int;
+}
+
+function cancelInputSwitch(e) {
+  if (e.keyCode === 9) {
+    e.preventDefault();
+  }
 }

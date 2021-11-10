@@ -26,20 +26,16 @@ function showData(games) {
 fetch(jsonData)
   .then((res) => res.json())
   .then((data) => {
-    console.log(data.areas);
     showAreas(data.areas);
   });
 
 function showAreas(areas) {
   const selects = document.querySelectorAll('select[name="improvements"]');
-  console.log("showAreas");
 
   selects.forEach((select) => {
-    console.log(select);
     areas.forEach((area) => {
       const areasOption = document.createElement("option");
 
-      console.log(area);
       areasOption.value = area;
       areasOption.textContent = area;
 

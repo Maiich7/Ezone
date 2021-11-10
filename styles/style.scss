@@ -10,4 +10,26 @@
 body {
   margin: 0;
   background-color: var(--bg-color);
+  overflow-x: hidden;
+  transition-duration: 0.3s;
+}
+
+#splash-container {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  pointer-events: none;
+
+  #splash-text {
+    padding: 1rem;
+    place-self: center;
+    transition-duration: 0.3s;
+
+    > * {
+      transition-duration: 0.3s;
+    }
+  }
 }

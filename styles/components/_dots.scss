@@ -1,14 +1,10 @@
 @use "../abstracts/variables" as *;
 
-.dots-navigation {
-  display: inline-flex;
-}
-
 .nav-dot {
   display: inline-grid;
   width: 1rem;
   height: 1rem;
-  border: 1.5px solid var(--heading-color-animate);
+  border: 1.5px solid var(--pill-fill2);
   border-radius: 1rem;
   cursor: pointer;
   vertical-align: middle;
@@ -19,7 +15,7 @@
   width: 0.8rem;
   height: 0.8em;
   border-radius: inherit;
-  background-color: var(--heading-color-animate);
+  background-color: var(--pill-fill2);
   place-self: center;
   opacity: 0;
   transform: scale(0.5);
