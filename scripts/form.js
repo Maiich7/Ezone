@@ -1,6 +1,6 @@
 "use strict";
 
-const jsonData = "/data.json";
+const jsonData = "./data.json";
 
 fetch(jsonData)
   .then((res) => res.json())

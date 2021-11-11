@@ -1,7 +1,8 @@
 "use strict";
 
-//Import posting functions
+//Import posting and sliding functions
 import { url, headers, submitUser, postUser } from "./restdb";
+import { calculateTranslateX, updateActiveElements, updateActiveSlide, updateActiveDot, updateDataCurrentSlide } from "./main";
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".submit-button").addEventListener("click", validateForm);
@@ -57,38 +58,4 @@ function finalSlide() {
   //Increment slide-container accordingly
   const increment = calculateTranslateX(nextSlideInt);
   container.style.transform = `translateX(-${increment}%)`;
-}
-
-function calculateTranslateX(newSlideInt) {
-  //Declare constants
-  const quarter = (1 / 4) * 100;
-  const increment = newSlideInt * quarter - quarter;
-
-  return increment;
-}
-
-function updateActiveElements(int) {
-  updateActiveSlide(int);
-  updateActiveDot(int);
-  updateDataCurrentSlide(int);
-}
-
-function updateActiveSlide(int) {
-  //Remove previous and set new active
-  const newSlide = document.querySelector(`.slide[data-slide="${int}"]`);
-  document.querySelector(".slide.active").classList.remove("active");
-  newSlide.classList.add("active");
-}
-
-function updateActiveDot(int) {
-  //Remove previous and set new active
-  const newDot = document.querySelector(`.nav-dot[data-dot="${int}"]`);
-  document.querySelector(".nav-dot.active").classList.remove("active");
-  newDot.classList.add("active");
-}
-
-function updateDataCurrentSlide(int) {
-  //Change data-current of popup to new slide value
-  const popup = document.querySelector(".popup");
-  popup.dataset.current = int;
 }
