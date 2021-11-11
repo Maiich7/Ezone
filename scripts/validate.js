@@ -19,8 +19,6 @@ function validateForm() {
     finalSlide();
     submitUser();
   } else {
-    reportErrors();
-
     const container = document.querySelector(".slides-container");
 
     if (formGeneral.checkValidity() === false) {
@@ -37,13 +35,6 @@ function validateForm() {
       updateActiveElements(2);
     }
   }
-}
-
-function reportErrors() {
-  console.log("reportingErrors");
-
-  //formGeneral.reportValidity();
-  //formGaming.reportValidity();
 }
 
 function finalSlide() {
