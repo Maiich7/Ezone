@@ -1,5 +1,8 @@
 "use strict";
 
+//Import posting functions
+import { url, headers, submitUser, postUser } from "./restdb";
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".submit-button").addEventListener("click", validateForm);
 });
@@ -13,7 +16,7 @@ function validateForm() {
 
   if (formGeneral.checkValidity() && formGaming.checkValidity()) {
     finalSlide();
-    submitData();
+    submitUser();
   } else {
     reportErrors();
 
@@ -33,10 +36,6 @@ function validateForm() {
       updateActiveElements(2);
     }
   }
-}
-
-function submitData() {
-  console.log("submittingData");
 }
 
 function reportErrors() {
